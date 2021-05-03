@@ -33,6 +33,12 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
+          Container(
+            color: AppConst.colorFlashyPink,
+            width: double.infinity,
+            height: AppConst.heightBottomCard,
+            margin: EdgeInsets.only(top: 10.0),
+          )
         ],
       ),
     );
