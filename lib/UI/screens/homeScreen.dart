@@ -1,3 +1,5 @@
+import 'package:bmi_calculator/UI/CustomColor.dart';
+import 'package:bmi_calculator/UI/widget/ReusableCard.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,8 +14,26 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text('BMI CALCULATOR'),
       ),
-      body: Center(
-        child: Text('Body Text'),
+      body: Column(
+        children: [
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(child: ReusableCard()),
+                Expanded(child: ReusableCard()),
+              ],
+            ),
+          ),
+          Expanded(child: ReusableCard()),
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(child: ReusableCard()),
+                Expanded(child: ReusableCard()),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
