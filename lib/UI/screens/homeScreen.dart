@@ -1,6 +1,8 @@
+import 'package:bmi_calculator/UI/widget/GenreCard.dart';
 import 'package:bmi_calculator/UI/widget/ReusableCard.dart';
 import 'package:bmi_calculator/Utils/AppConst.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -19,8 +21,16 @@ class _HomeScreenState extends State<HomeScreen> {
           Expanded(
             child: Row(
               children: [
-                Expanded(child: ReusableCard()),
-                Expanded(child: ReusableCard()),
+                Expanded(
+                  child: ReusableCard(
+                    child: GenreCard(icon: FontAwesomeIcons.mars, text: "male",)
+                  ),
+                ),
+                Expanded(
+                  child: ReusableCard(
+                    child: GenreCard(icon: FontAwesomeIcons.venus, text: "female",),
+                  ),
+                ),
               ],
             ),
           ),
