@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/UI/CustomColor.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(BMICalculator());
@@ -6,6 +7,10 @@ class BMICalculator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.dark().copyWith(
+        primaryColor: CustomColor().darkPurpleBlueColor,
+        scaffoldBackgroundColor: CustomColor().darkPurpleBlueColor,
+      ),
       home: InputPage(),
     );
   }
@@ -25,9 +30,6 @@ class _InputPageState extends State<InputPage> {
       ),
       body: Center(
         child: Text('Body Text'),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
       ),
     );
   }
