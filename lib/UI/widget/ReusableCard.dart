@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 class ReusableCard extends StatelessWidget {
 
   final Color color;
+  final Widget child;
 
-  ReusableCard({this.color = AppConst.colorLighterDark});
+  ReusableCard({this.color = AppConst.colorLighterDark, this.child});
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      child: child,
       margin: EdgeInsets.all(15.0),
       decoration: BoxDecoration(
         color: color,
