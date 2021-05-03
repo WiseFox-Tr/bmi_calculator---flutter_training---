@@ -1,5 +1,5 @@
-import 'package:bmi_calculator/UI/CustomColor.dart';
 import 'package:bmi_calculator/UI/widget/ReusableCard.dart';
+import 'package:bmi_calculator/Utils/AppConst.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {

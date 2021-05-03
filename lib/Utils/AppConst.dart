@@ -7,4 +7,4 @@ class AppConst {
   static const Color colorLighterDark = Color(0xFF1D1E33);
   static const Color colorFlashyPink = Color(0xFFEB1555);
   }
-  
+
