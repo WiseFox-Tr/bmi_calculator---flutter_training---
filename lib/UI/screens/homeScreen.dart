@@ -1,4 +1,4 @@
-import 'package:bmi_calculator/UI/widget/GenreCard.dart';
+import 'package:bmi_calculator/UI/widget/GenderCard.dart';
 import 'package:bmi_calculator/UI/widget/ReusableCard.dart';
 import 'package:bmi_calculator/Utils/AppConst.dart';
 import 'package:flutter/material.dart';
@@ -23,12 +23,18 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Expanded(
                   child: ReusableCard(
-                    child: GenreCard(icon: FontAwesomeIcons.mars, text: "male",)
+                    child: GenderCard(
+                      icon: FontAwesomeIcons.mars,
+                      text: "male",
+                    ),
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
-                    child: GenreCard(icon: FontAwesomeIcons.venus, text: "female",),
+                    child: GenderCard(
+                      icon: FontAwesomeIcons.venus,
+                      text: "female",
+                    ),
                   ),
                 ),
               ],
