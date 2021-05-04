@@ -2,12 +2,12 @@ import 'package:bmi_calculator/Utils/AppConst.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class GenreCard extends StatelessWidget {
+class GenderCard extends StatelessWidget {
 
   final IconData icon;
   final String text;
 
-  GenreCard({@required this.icon, @required this.text});
+  GenderCard({@required this.icon, @required this.text});
 
   @override
   Widget build(BuildContext context) {
