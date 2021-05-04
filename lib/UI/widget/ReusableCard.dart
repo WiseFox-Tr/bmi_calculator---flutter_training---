@@ -6,7 +6,7 @@ class ReusableCard extends StatelessWidget {
   final Color color;
   final Widget child;
 
-  ReusableCard({this.color = AppConst.colorLighterDark, this.child});
+  ReusableCard({this.color = AppConst.colorActiveCard, this.child});
 
   @override
   Widget build(BuildContext context) {
