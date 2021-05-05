@@ -21,11 +21,8 @@ class GenderCard extends StatelessWidget {
         ),
         SizedBox(height: 15.0),
         Text(
-          text.toUpperCase(),
-          style: TextStyle(
-            color: AppConst.colorLightGrey,
-            fontSize: AppConst.fontSizeRegular,
-          ),
+          text,
+          style: AppConst.labelTextStyle,
         ),
       ],
     );
