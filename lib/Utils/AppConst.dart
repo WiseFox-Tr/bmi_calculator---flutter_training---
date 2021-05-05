@@ -11,6 +11,15 @@ class AppConst {
   static const Color colorCardInactive = Color(0xFF090B17);
   static const Color colorCardActive = Color(0xFF1D1E33);
   static const Color colorFlashyPink = Color(0xFFEB1555);
+  static const Color colorPinkSemiTransparent = Color(0x29EB1555);
   static const Color colorLightGrey = Color(0xFF8D8E98);
-  }
 
+  static const TextStyle labelTextStyle = TextStyle(
+    color: AppConst.colorLightGrey,
+    fontSize: AppConst.fontSizeRegular,
+  );
+  static const TextStyle numberTextStyle = TextStyle(
+    fontSize: 40.0,
+    fontWeight: FontWeight.w900,
+  );
+}
