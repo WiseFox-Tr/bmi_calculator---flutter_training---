@@ -13,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   Gender currentGender;
+  int currentHeight = 180;
 
   void onPressGenderCard(Gender gender) {
     setState(() {
@@ -27,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text('BMI CALCULATOR'),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
             child: Row(
@@ -37,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: currentGender == Gender.male ? AppConst.colorCardActive : AppConst.colorCardInactive,
                     child: GenderCard(
                       icon: FontAwesomeIcons.mars,
-                      text: "male",
+                      text: 'male'.toUpperCase(),
                     ),
                   ),
                 ),
@@ -47,14 +49,52 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: currentGender == Gender.female ? AppConst.colorCardActive : AppConst.colorCardInactive,
                     child: GenderCard(
                       icon: FontAwesomeIcons.venus,
-                      text: "female",
+                      text: 'female'.toUpperCase(),
                     ),
                   ),
                 ),
               ],
             ),
           ),
-          Expanded(child: ReusableCard()),
+          Expanded(
+            child: ReusableCard(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'height'.toUpperCase(),
+                    style: AppConst.labelTextStyle,
+                  ),
+                  SizedBox(height: 5.0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      Text(
+                        currentHeight.toString(),
+                        style: AppConst.numberTextStyle,
+                      ),
+                      Text(
+                        ' cm',
+                        style: AppConst.labelTextStyle,
+                      ),
+                    ],
+                  ),
+                  Slider(
+                    value: currentHeight.toDouble(),
+                    min: 120,
+                    max: 220,
+                    onChanged: (double newValue) {
+                      setState(() {
+                        currentHeight = newValue.round();
+                      });
+                    }
+                  ),
+                ],
+              ),
+            ),
+          ),
           Expanded(
             child: Row(
               children: [
