@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
 class AppConst {
+
+  static const String strAppTitle = 'BMI Calculator';
+
   //size
   static const double heightBottomCard = 60.0;
   static const double sizeIcon = 70.0;
-  static const double fontSizeRegular = 18.0;
+  static const double fontSizeRegular = 25.0;
+  static const double fontSizeLabel = 18.0;
 
   //color
   static const Color colorIntenseDark = Color(0xFF0A0E21);
@@ -17,7 +21,11 @@ class AppConst {
 
   static const TextStyle labelTextStyle = TextStyle(
     color: AppConst.colorLightGrey,
+    fontSize: AppConst.fontSizeLabel,
+  );
+  static const TextStyle regularTextStyle = TextStyle(
     fontSize: AppConst.fontSizeRegular,
+    fontWeight: FontWeight.w600,
   );
   static const TextStyle numberTextStyle = TextStyle(
     fontSize: 40.0,
