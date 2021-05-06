@@ -20,6 +20,7 @@ class AppConst {
   static const Color colorPinkSemiTransparent = Color(0x29EB1555);
   static const Color colorButtonGrey = Color(0xFF4C4F5E);
   static const Color colorLightGrey = Color(0xFF8D8E98);
+  static const Color colorFlashyGreen = Color(0xFF24D876);
 
   static const TextStyle labelTextStyle = TextStyle(
     color: AppConst.colorLightGrey,
@@ -31,6 +32,10 @@ class AppConst {
   );
   static const TextStyle numberTextStyle = TextStyle(
     fontSize: 40.0,
+    fontWeight: FontWeight.w900,
+  );
+  static const TextStyle resultNumberTextStyle = TextStyle(
+    fontSize: 60.0,
     fontWeight: FontWeight.w900,
   );
 }
