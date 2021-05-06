@@ -1,4 +1,6 @@
+import 'package:bmi_calculator/UI/screens/resultScreen.dart';
 import 'package:bmi_calculator/UI/widget/GenderCard.dart';
+import 'package:bmi_calculator/UI/widget/LargeClickableCard.dart';
 import 'package:bmi_calculator/UI/widget/MoreOrLessCard.dart';
 import 'package:bmi_calculator/UI/widget/ReusableCard.dart';
 import 'package:bmi_calculator/Utils/AppConst.dart';
@@ -138,21 +140,11 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          GestureDetector(
+          LargeClickableCard(
             onTap: () => Navigator.pushNamed(context, AppConst.routeResult),
-            child: Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.only(bottom: 5.0),
-              color: AppConst.colorFlashyPink,
-              width: double.infinity,
-              height: AppConst.heightBottomCard,
-              margin: EdgeInsets.only(top: 10.0),
-              child: Text(
-                'calculate'.toUpperCase(),
-                style: AppConst.regularTextStyle,
-              ),
-            ),
-          )
+            cardTitle: 'calculate',
+            height: AppConst.heightBottomCard,
+          ),
         ],
       ),
     );
