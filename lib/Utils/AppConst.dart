@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppConst {
   //size
-  static const double heightBottomCard = 80.0;
+  static const double heightBottomCard = 60.0;
   static const double sizeIcon = 70.0;
   static const double fontSizeRegular = 18.0;
 
@@ -12,6 +12,7 @@ class AppConst {
   static const Color colorCardActive = Color(0xFF1D1E33);
   static const Color colorFlashyPink = Color(0xFFEB1555);
   static const Color colorPinkSemiTransparent = Color(0x29EB1555);
+  static const Color colorButtonGrey = Color(0xFF4C4F5E);
   static const Color colorLightGrey = Color(0xFF8D8E98);
 
   static const TextStyle labelTextStyle = TextStyle(
