@@ -1,4 +1,5 @@
 import 'package:bmi_calculator/UI/screens/homeScreen.dart';
+import 'package:bmi_calculator/UI/screens/resultScreen.dart';
 import 'package:bmi_calculator/Utils/AppConst.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,11 @@ class BMICalculator extends StatelessWidget {
           inactiveTrackColor: AppConst.colorLightGrey,
         )
       ),
-      home: HomeScreen(),
+      initialRoute: AppConst.routeHome,
+      routes: {
+        AppConst.routeHome : (BuildContext context) => HomeScreen(),
+        AppConst.routeResult : (BuildContext context) => ResultScreen(),
+      },
     );
   }
 }
