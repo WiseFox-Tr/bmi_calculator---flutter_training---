@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI CALCULATOR'),
+        title: Text(AppConst.strAppTitle),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -138,11 +138,20 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          Container(
-            color: AppConst.colorFlashyPink,
-            width: double.infinity,
-            height: AppConst.heightBottomCard,
-            margin: EdgeInsets.only(top: 10.0),
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(context, AppConst.routeResult),
+            child: Container(
+              alignment: Alignment.center,
+              padding: EdgeInsets.only(bottom: 5.0),
+              color: AppConst.colorFlashyPink,
+              width: double.infinity,
+              height: AppConst.heightBottomCard,
+              margin: EdgeInsets.only(top: 10.0),
+              child: Text(
+                'calculate'.toUpperCase(),
+                style: AppConst.regularTextStyle,
+              ),
+            ),
           )
         ],
       ),
