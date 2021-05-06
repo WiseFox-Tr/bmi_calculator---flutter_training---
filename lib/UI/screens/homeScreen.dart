@@ -1,4 +1,5 @@
 import 'package:bmi_calculator/UI/widget/GenderCard.dart';
+import 'package:bmi_calculator/UI/widget/MoreOrLessCard.dart';
 import 'package:bmi_calculator/UI/widget/ReusableCard.dart';
 import 'package:bmi_calculator/Utils/AppConst.dart';
 import 'package:flutter/material.dart';
@@ -14,11 +15,20 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Gender currentGender;
   int currentHeight = 180;
+  int currentWeight = 80;
+  int currentAge = 20;
 
   void onPressGenderCard(Gender gender) {
     setState(() {
       currentGender = gender;
     });
+  }
+
+  int updateIntValueByOne(bool isIncrement, int intValue) {
+    if(isIncrement)
+      return ++intValue;
+    else
+      return --intValue;
   }
 
   @override
@@ -65,7 +75,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     'height'.toUpperCase(),
                     style: AppConst.labelTextStyle,
                   ),
-                  SizedBox(height: 5.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -98,8 +107,34 @@ class _HomeScreenState extends State<HomeScreen> {
           Expanded(
             child: Row(
               children: [
-                Expanded(child: ReusableCard()),
-                Expanded(child: ReusableCard()),
+                Expanded(
+                  child: ReusableCard(
+                    child: MoreOrLessCard(
+                      label: 'weight'.toUpperCase(),
+                      value: currentWeight.toString(),
+                      minusOnPressedCallBack: () {
+                        setState(() => currentWeight = updateIntValueByOne(false, currentWeight));
+                      },
+                      plusButtonOnPressedCallBack: () {
+                        setState(() => currentWeight = updateIntValueByOne(true, currentWeight));
+                      },
+                    )
+                  ),
+                ),
+                Expanded(
+                  child: ReusableCard(
+                      child: MoreOrLessCard(
+                        label: 'age'.toUpperCase(),
+                        value: currentAge.toString(),
+                        minusOnPressedCallBack: () {
+                          setState(() => currentAge = updateIntValueByOne(false, currentAge));
+                        },
+                        plusButtonOnPressedCallBack: () {
+                          setState(() => currentAge = updateIntValueByOne(true, currentAge));
+                        },
+                      )
+                  ),
+                ),
               ],
             ),
           ),
