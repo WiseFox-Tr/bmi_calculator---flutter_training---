@@ -1,4 +1,4 @@
-import 'package:bmi_calculator/UI/screens/resultScreen.dart';
+import 'package:bmi_calculator/Controller/BMIController.dart';
 import 'package:bmi_calculator/UI/widget/GenderCard.dart';
 import 'package:bmi_calculator/UI/widget/LargeClickableCard.dart';
 import 'package:bmi_calculator/UI/widget/MoreOrLessCard.dart';
@@ -15,23 +15,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
-  Gender currentGender;
-  int currentHeight = 180;
-  int currentWeight = 80;
-  int currentAge = 20;
-
-  void onPressGenderCard(Gender gender) {
-    setState(() {
-      currentGender = gender;
-    });
-  }
-
-  int updateIntValueByOne(bool isIncrement, int intValue) {
-    if(isIncrement)
-      return ++intValue;
-    else
-      return --intValue;
-  }
+  BMIController _bmiController = BMIController();
 
   @override
   Widget build(BuildContext context) {
@@ -47,8 +31,10 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Expanded(
                   child: ReusableCard(
-                    onPress: () => onPressGenderCard(Gender.male),
-                    color: currentGender == Gender.male ? AppConst.colorCardActive : AppConst.colorCardInactive,
+                    onPress: () {
+                      setState(() => _bmiController.setGender = Gender.male);
+                    },
+                    color: _bmiController.getGender == Gender.male ? AppConst.colorCardActive : AppConst.colorCardInactive,
                     child: GenderCard(
                       icon: FontAwesomeIcons.mars,
                       text: 'male'.toUpperCase(),
@@ -57,8 +43,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Expanded(
                   child: ReusableCard(
-                    onPress: () => onPressGenderCard(Gender.female),
-                    color: currentGender == Gender.female ? AppConst.colorCardActive : AppConst.colorCardInactive,
+                    onPress: () {
+                      setState(() => _bmiController.setGender = Gender.female);
+                    },
+                    color: _bmiController.getGender == Gender.female ? AppConst.colorCardActive : AppConst.colorCardInactive,
                     child: GenderCard(
                       icon: FontAwesomeIcons.venus,
                       text: 'female'.toUpperCase(),
@@ -83,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     textBaseline: TextBaseline.alphabetic,
                     children: [
                       Text(
-                        currentHeight.toString(),
+                        _bmiController.getCurrentHeight.toString(),
                         style: AppConst.numberTextStyle,
                       ),
                       Text(
@@ -93,12 +81,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                   Slider(
-                    value: currentHeight.toDouble(),
+                    value: _bmiController.getCurrentHeight.toDouble(),
                     min: 120,
                     max: 220,
                     onChanged: (double newValue) {
                       setState(() {
-                        currentHeight = newValue.round();
+                        _bmiController.setCurrentHeight = newValue.round();
                       });
                     }
                   ),
@@ -113,12 +101,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ReusableCard(
                     child: MoreOrLessCard(
                       label: 'weight'.toUpperCase(),
-                      value: currentWeight.toString(),
+                      value: _bmiController.getCurrentWeight.toString(),
                       minusOnPressedCallBack: () {
-                        setState(() => currentWeight = updateIntValueByOne(false, currentWeight));
+                        setState(() => _bmiController.updateWeightByOne(false));
                       },
                       plusButtonOnPressedCallBack: () {
-                        setState(() => currentWeight = updateIntValueByOne(true, currentWeight));
+                        setState(() => _bmiController.updateWeightByOne(true));
                       },
                     )
                   ),
@@ -127,12 +115,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ReusableCard(
                       child: MoreOrLessCard(
                         label: 'age'.toUpperCase(),
-                        value: currentAge.toString(),
+                        value: _bmiController.getCurrentAge.toString(),
                         minusOnPressedCallBack: () {
-                          setState(() => currentAge = updateIntValueByOne(false, currentAge));
+                          setState(() => _bmiController.updateAgeByOne(false));
                         },
                         plusButtonOnPressedCallBack: () {
-                          setState(() => currentAge = updateIntValueByOne(true, currentAge));
+                          setState(() => _bmiController.updateAgeByOne(true));
                         },
                       )
                   ),
@@ -141,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           LargeClickableCard(
-            onTap: () => Navigator.pushNamed(context, AppConst.routeResult),
+            onTap: () => Navigator.pushNamed(context, AppConst.routeResult, arguments: _bmiController.provideResults()),
             cardTitle: 'calculate',
             height: AppConst.heightBottomCard,
           ),
