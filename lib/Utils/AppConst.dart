@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class AppConst {
 
-  static const String strAppTitle = 'BMI Calculator';
   static const String routeHome = '/home';
   static const String routeResult = '/result';
 
