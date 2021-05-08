@@ -2,8 +2,6 @@ import 'package:bmi_calculator/Utils/AppConst.dart';
 import 'package:flutter/material.dart';
 
 class LargeClickableCard extends StatelessWidget {
-  ///provides a card with a width as large as possible
-  ///this card is clickable with an onTap callback
 
   final Function onTap;
   final String cardTitle;
@@ -11,6 +9,8 @@ class LargeClickableCard extends StatelessWidget {
   final Color backgroundColor;
   final TextStyle textStyle;
 
+  ///provides a card with a width as large as possible
+  ///this card is clickable with an onTap callback
   LargeClickableCard({
     @required this.onTap,
     @required this.cardTitle,
