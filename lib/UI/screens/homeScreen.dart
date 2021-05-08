@@ -4,6 +4,7 @@ import 'package:bmi_calculator/UI/widget/LargeClickableCard.dart';
 import 'package:bmi_calculator/UI/widget/MoreOrLessCard.dart';
 import 'package:bmi_calculator/UI/widget/ReusableCard.dart';
 import 'package:bmi_calculator/Utils/AppConst.dart';
+import 'package:bmi_calculator/Utils/app_strings_and_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmi_calculator/Utils/appEnums.dart';
@@ -19,9 +20,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppConst.strAppTitle),
+        title: Text(AppStrings.strings[AppStringKeys.title]),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -37,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: _bmiController.getGender == Gender.male ? AppConst.colorCardActive : AppConst.colorCardInactive,
                     child: GenderCard(
                       icon: FontAwesomeIcons.mars,
-                      text: 'male'.toUpperCase(),
+                      text: AppStrings.strings[AppStringKeys.genderMale].toUpperCase(),
                     ),
                   ),
                 ),
@@ -49,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: _bmiController.getGender == Gender.female ? AppConst.colorCardActive : AppConst.colorCardInactive,
                     child: GenderCard(
                       icon: FontAwesomeIcons.venus,
-                      text: 'female'.toUpperCase(),
+                      text: AppStrings.strings[AppStringKeys.genderFemale].toUpperCase(),
                     ),
                   ),
                 ),
