@@ -8,9 +8,9 @@ import 'package:bmi_calculator/Utils/appStringsAndKeys.dart';
 class BMIController {
 
   Gender _currentGender;
-  int _currentHeight = 180;
+  int _currentHeight = 170;
   int _currentWeight = 70;
-  int _currentAge = 20;
+  int _currentAge = 30;
   double _bmi;
 
   get getGender => _currentGender;
@@ -21,13 +21,13 @@ class BMIController {
   set setCurrentHeight(int newHeight) => _currentHeight = newHeight;
 
   void updateWeightByOne(bool isIncrement) {
-    if(isIncrement) _currentWeight++;
-    else _currentWeight--;
+    if(isIncrement && _currentWeight < 400) _currentWeight++;
+    else if(!isIncrement && _currentWeight > 10) _currentWeight--;
   }
 
   void updateAgeByOne(bool isIncrement) {
-    if(isIncrement) _currentAge++;
-    else _currentAge--;
+    if(isIncrement && _currentAge < 120) _currentAge++;
+    else if(!isIncrement && _currentAge > 5) _currentAge--;
   }
 
   ///formula : weight / height (in meter) ^2 !
