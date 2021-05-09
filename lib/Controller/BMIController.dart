@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:bmi_calculator/Model/Result.dart';
 import 'package:bmi_calculator/Utils/appEnums.dart';
+import 'package:bmi_calculator/Utils/appStringsAndKeys.dart';
 
 class BMIController {
 
@@ -38,28 +39,28 @@ class BMIController {
     _calculateBMI();
     //inform bmi is not a pertinent indicator for people under 18 or over than 70 years old.
     if(_currentAge < 18)
-      result = Result(_bmi, 'non pertinent', 'BMI is not a pertinent indicator for children & teenagers... sorry try it later !');
+      result = Result(_bmi, AppStrings.strings[AppStringKey.labelNonRelevant], AppStrings.strings[AppStringKey.textNonRelevantYoungster]);
     else if(_currentAge > 70)
-      result = Result(_bmi, 'non pertinent', 'BMI is not a pertinent indicator for seniors... prefer to find a more detailed tool.');
+      result = Result(_bmi, AppStrings.strings[AppStringKey.labelNonRelevant], AppStrings.strings[AppStringKey.textNonRelevantOlder]);
     //provide result for people in range of 18..70 years old.
     else {
       if(_bmi < 16.5)
-        result = Result(_bmi, 'undernourishment', 'You are in severe underweight, don\'t hesitate to consult a specialist.');
+        result = Result(_bmi, AppStrings.strings[AppStringKey.indicatorUndernourishment], AppStrings.strings[AppStringKey.textUndernourishment]);
       else if(_bmi < 18.5)
-        result = Result(_bmi, 'thinness', 'Your weight is little low, consider to eat a little more.');
+        result = Result(_bmi, AppStrings.strings[AppStringKey.indicatorThinness], AppStrings.strings[AppStringKey.textThinness]);
       else if(_bmi < 25)
-        result = Result(_bmi, 'normal', 'Your weight seems well, good job!');
+        result = Result(_bmi, AppStrings.strings[AppStringKey.indicatorNormal], AppStrings.strings[AppStringKey.textNormal]);
       else if(_bmi < 30)
-        result = Result(_bmi, 'overweight', 'You are on overweight, maybe consider to eat a little more healthy and practise some exercises.');
+        result = Result(_bmi, AppStrings.strings[AppStringKey.indicatorOverweight], AppStrings.strings[AppStringKey.textOverweight]);
       else if(_bmi < 35)
-        result = Result(_bmi, 'moderate obesity', 'Your weight is too important, consider to consult a specialist!');
+        result = Result(_bmi, AppStrings.strings[AppStringKey.indicatorModerateObesity], AppStrings.strings[AppStringKey.textModerateObesity]);
       else if(_bmi < 40)
-        result = Result(_bmi, 'serious obesity', 'Your weight says that you really need to refer to a specialist!');
+        result = Result(_bmi, AppStrings.strings[AppStringKey.indicatorSeriousObesity], AppStrings.strings[AppStringKey.textSeriousObesity]);
       else
-        result = Result(_bmi, 'morbid obesity', 'Your are at great risk, please refer to a specialist to save your life...');
+        result = Result(_bmi, AppStrings.strings[AppStringKey.indicatorMorbidObesity], AppStrings.strings[AppStringKey.textMorbidObesity]);
       //add additional note for women about pregnancy.
       if(_currentGender == Gender.female)
-        result.explanation += '\nPlease note that these results are not reliable if you are pregnant.';
+        result.explanation += AppStrings.strings[AppStringKey.textPregnancyWarning];
     }
     return result;
   }

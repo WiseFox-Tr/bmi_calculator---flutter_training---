@@ -2,7 +2,7 @@ import 'package:bmi_calculator/Model/Result.dart';
 import 'package:bmi_calculator/UI/widget/LargeClickableCard.dart';
 import 'package:bmi_calculator/UI/widget/ReusableCard.dart';
 import 'package:bmi_calculator/Utils/AppConst.dart';
-import 'package:bmi_calculator/Utils/app_strings_and_keys.dart';
+import 'package:bmi_calculator/Utils/appStringsAndKeys.dart';
 import 'package:flutter/material.dart';
 
 class ResultScreen extends StatelessWidget {
@@ -11,7 +11,7 @@ class ResultScreen extends StatelessWidget {
     final Result result = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppStrings.strings[AppStringKeys.title]),
+        title: Text(AppStrings.strings[AppStringKey.appTitle]),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -22,7 +22,7 @@ class ResultScreen extends StatelessWidget {
               padding: EdgeInsets.all(16.0),
               alignment: Alignment.bottomLeft,
               child: Text(
-                'Your results',
+                AppStrings.strings[AppStringKey.titleResult],
                 style: AppConst.numberTextStyle,
               ),
             ),
@@ -56,7 +56,7 @@ class ResultScreen extends StatelessWidget {
           ),
           LargeClickableCard(
             onTap: () => Navigator.pop(context),
-            cardTitle: 're-calculate',
+            cardTitle: AppStrings.strings[AppStringKey.btnReCalculate],
             height: AppConst.heightBottomCard,
           ),
         ],
