@@ -20,6 +20,7 @@ class BMICalculator extends StatelessWidget {
           inactiveTrackColor: AppConst.colorLightGrey,
         )
       ),
+      debugShowCheckedModeBanner: false,
       initialRoute: AppConst.routeHome,
       routes: {
         AppConst.routeHome : (BuildContext context) => HomeScreen(),
