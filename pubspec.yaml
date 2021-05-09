@@ -16,6 +16,10 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_name: "^0.0.1"
+
+flutter_launcher_name:
+  name: "BMI Calculator"
 
 flutter:
   uses-material-design: true
